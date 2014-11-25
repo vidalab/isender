@@ -3,7 +3,7 @@
 //    var sender = new Vida.ISender('targetIframeId')
 //    sender.postRender(newJSONDataObj)
 
-DEFAULT_ORIGIN = 'http://localhost:3000'
+DEFAULT_ORIGIN = 'https://vida.io'
 RENDER_CALLBACK_NAME   = 'renderData'
 POST_DATA_MESSAGE_TYPE = 'postData'
 CALLBACK_MESSAGE_TYPE  = 'runCallback'
