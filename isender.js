@@ -45,7 +45,21 @@ Vida.ISender.prototype.runCallback = function (callbackName) {
 
 Vida.ISender.prototype.postRender = function (json){
   if (json) {
-    this.post(json)
-    this.render()
-  }  
+    var _this = this
+    
+    function internalPostRender() {
+      _this.post(json)
+      _this.render()
+    }
+
+    if (typeof(Vida.ISender.first_post) === 'undefined') {
+      // work around for meteor load
+      Vida.ISender.first_post = true
+      setTimeout(function() {
+        internalPostRender()
+      }, 1000);
+    } else {
+      internalPostRender();
+    }
+  }
 }
