@@ -57,7 +57,7 @@ Vida.ISender.prototype.postRender = function (json){
       Vida.ISender.first_post = true
       setTimeout(function() {
         internalPostRender()
-      }, 1000);
+      }, 2000);
     } else {
       internalPostRender();
     }
