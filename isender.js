@@ -52,12 +52,19 @@ Vida.ISender.prototype.postRender = function (json){
       _this.render()
     }
 
+    function repeatPostRender(count) {
+      if (count < 5) {
+        setTimeout(function() {
+          internalPostRender()
+          repeatPostRender(++count)
+        }, 1000)
+      }
+    }
+
     if (typeof(Vida.ISender.first_post) === 'undefined') {
       // work around for meteor load
       Vida.ISender.first_post = true
-      setTimeout(function() {
-        internalPostRender()
-      }, 2000);
+      repeatPostRender(0);
     } else {
       internalPostRender();
     }
